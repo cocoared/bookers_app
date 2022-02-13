@@ -1,76 +1,20 @@
 <p id="notice"></p>
 <h1>Books</h1>
+<% @books.each do |book| %>
+<span>
+  <%=link_to book.title, bookshow_path(book.id) %>
+</span>
 <table>
   <thead>
     <tr>
-      <th>Title</th>
-      <th>Body</th>
-      <th colspan="3"></th>
     </tr>
   </thead>
-
-  <tbody>
-      <tr>
-        <td>リーダブルコード</td>
-        <td>より良いコードを書くためのシンプルで実践的なテクニック</td>
-        <td><a class="show_52038" href="/books/52038">Show</a></td>
-        <td><a class="edit_52038" href="/books/52038/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52038" rel="nofollow" data-method="delete" href="/books/52038">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>トラブル知らずのシステム設計</td>
-        <td>システム設計の要点を図解で説明してくれます</td>
-        <td><a class="show_52039" href="/books/52039">Show</a></td>
-        <td><a class="edit_52039" href="/books/52039/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52039" rel="nofollow" data-method="delete" href="/books/52039">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>たのしいRuby</td>
-        <td>Rubyの入門におすすめです</td>
-        <td><a class="show_52040" href="/books/52040">Show</a></td>
-        <td><a class="edit_52040" href="/books/52040/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52040" rel="nofollow" data-method="delete" href="/books/52040">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>入門Git</td>
-        <td>gitについての基本操作から内部構造まで解説してくれます</td>
-        <td><a class="show_52041" href="/books/52041">Show</a></td>
-        <td><a class="edit_52041" href="/books/52041/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52041" rel="nofollow" data-method="delete" href="/books/52041">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>アルゴリズム図鑑</td>
-        <td>アルゴリズムについてカラーイラストでしっかり解説してくれます</td>
-        <td><a class="show_52042" href="/books/52042">Show</a></td>
-        <td><a class="edit_52042" href="/books/52042/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52042" rel="nofollow" data-method="delete" href="/books/52042">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>達人プログラマー</td>
-        <td>プログラマ入門者は必読！</td>
-        <td><a class="show_52043" href="/books/52043">Show</a></td>
-        <td><a class="edit_52043" href="/books/52043/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52043" rel="nofollow" data-method="delete" href="/books/52043">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>データベース実践入門</td>
-        <td>効率的なSQL文を教えてくれますk</td>
-        <td><a class="show_52044" href="/books/52044">Show</a></td>
-        <td><a class="edit_52044" href="/books/52044/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52044" rel="nofollow" data-method="delete" href="/books/52044">Destroy</a></td>
-      </tr>
-      <tr>
-        <td>ああ</td>
-        <td>ああ</td>
-        <td><a class="show_52048" href="/books/52048">Show</a></td>
-        <td><a class="edit_52048" href="/books/52048/edit">Edit</a></td>
-        <td><a data-confirm="Are you sure?" class="destroy_52048" rel="nofollow" data-method="delete" href="/books/52048">Destroy</a></td>
-      </tr>
-  </tbody>
 </table>
 
+<% end %>
+
 <h2>New book</h2>
-<%= form_with model: @Book,url: '/books', method: :post, local:true do |f| %>
+<%= form_with model: @book,url: '/books', method: :post, local:true do |f| %>
 
 <h4>Title</h4>
 <%= f.text_field :title %>
